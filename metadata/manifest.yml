@@ -22,11 +22,11 @@ Scaling:
 Endpoints:
   - Private-IP-Name:   IP
     Private-Port-Name: ZK_PORT
-    Private-Port:      3128
-    Public-Port-Name:  PROXY_ZK_PORT
+    Private-Port:      2181
+    Public-Port-Name:  PROXY_KZ_PORT
 
   - Private-IP-Name:   IP
     Private-Port-Name: PORT
-    Private-Port:      9352
+    Private-Port:      9092
     Public-Port-Name:  PROXY_PORT
 Install-Build-Required: false
