@@ -19,4 +19,4 @@ clientPort= '<%= ENV['OPENSHIFT_KAFKA_PORT'] %>'
 # disable the per-ip limit on the number of connections since this is a non-production config
 maxClientCnxns=0
 
-host.name= '<%= ENV['OPENSHIFT_KAFKA_IP'] %>'
+clientPortBindAddress= '<%= ENV['OPENSHIFT_KAFKA_IP'] %>'

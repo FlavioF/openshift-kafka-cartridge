@@ -55,14 +55,14 @@ do
 done
 
 # JMX settings
-if [ -z "$KAFKA_JMX_OPTS" ]; then
-  KAFKA_JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.ssl=false "
-fi
+#if [ -z "$KAFKA_JMX_OPTS" ]; then
+#  KAFKA_JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.ssl=false "
+#fi
 
 # JMX port to use
-if [  $JMX_PORT ]; then
-  KAFKA_JMX_OPTS="$KAFKA_JMX_OPTS -Dcom.sun.management.jmxremote.port=$JMX_PORT "
-fi
+#if [  $JMX_PORT ]; then
+#  KAFKA_JMX_OPTS="$KAFKA_JMX_OPTS -Dcom.sun.management.jmxremote.port=$JMX_PORT "
+#fi
 
 # Log4j settings
 if [ -z "$KAFKA_LOG4J_OPTS" ]; then
