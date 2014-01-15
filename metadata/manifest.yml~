@@ -13,7 +13,7 @@ Categories:
   - service
   - embedded
 Website: http://kafka.apache.org
-Source-Url: https://github.com/rajatchopra/openshift-origin-cartridge-cassandra.git
+Source-Url: https://github.com/FlavioF/kafka-cartridge.git
 Provides:
   - kafka-2.8.0
   - kafka
