@@ -1,0 +1,15 @@
+---
+snapshot_exclusions:
+- kafka/*
+locked_files:
+- bin/
+- bin/*
+- env/OPENSHIFT_KAFKA_USERNAME
+- env/OPENSHIFT_KAFKA_PASSWORD
+- env/OPENSHIFT_KAFKA_URL
+- metadata/
+- metadata/*
+- hooks/
+- hooks/*
+processed_templates:
+- '**/*.erb'

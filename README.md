@@ -1,2 +1,3 @@
-kafka-cartridge
-===============
+# OpenShift Kafka Cartridge
+
+

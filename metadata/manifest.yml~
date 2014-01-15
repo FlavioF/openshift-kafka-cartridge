@@ -1,0 +1,32 @@
+Name: kafka
+Cartridge-Short-Name: KAFKA
+Architecture: noarch
+Display-Name: Kafka 2.8.0
+Description: "Kafka is a distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system, but with a unique design."
+Version: '2.8.0'
+Versions: [2.8.0]
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: be
+License: GPL
+Vendor: kafka.apache.org
+Categories:
+  - service
+  - embedded
+Website: http://kafka.apache.org
+Source-Url: https://github.com/rajatchopra/openshift-origin-cartridge-cassandra.git
+Provides:
+  - kafka-2.8.0
+  - kafka
+Scaling:
+  Min: 1
+  Max: 1
+Endpoints:
+  - Private-IP-Name:   HOST
+    Private-Port-Name: PORT
+    Private-Port:      2181
+    Public-Port-Name:  PROXY_PORT
+  - Private-IP-Name:   P_HOST
+    Private-Port-Name: P_PORT
+    Private-Port:      9092
+    Public-Port-Name:  PROXY_P_PORT
+Install-Build-Required: false

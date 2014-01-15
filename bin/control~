@@ -1,0 +1,156 @@
+#!/bin/bash -e
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+KAFKA_BIN_DIR=${OPENSHIFT_KAFKA_DIR}/bin
+cartridge_type="kafka"
+version=2.8.0
+
+
+# Check if the server http port is up
+function ishttpup() {
+
+    let count=0
+    while [ ${count} -lt 24 ]
+    do
+if /usr/sbin/lsof -P -n -i "@${OPENSHIFT_KAFKA_IP}:${OPENSHIFT_KAFKA_HTTP_PORT}" | grep "(LISTEN)" > /dev/null; then
+echo "Found ${OPENSHIFT_KAFKA_IP}:${OPENSHIFT_KAFKA_HTTP_PORT} listening port"
+            return 0
+        fi
+let count=${count}+1
+
+        sleep 2
+    done
+
+return 1
+}
+
+function build() {
+  echo "Building KAFKA"
+
+}
+
+function deploy() {
+  echo "Deploying KAFKA"
+  
+}
+
+function copy_conf() {
+        # Create a link for each file in user config to server standalone/config
+        if [ -d ${OPENSHIFT_REPO_DIR}.openshift/config ]
+        then
+         for f in ${OPENSHIFT_REPO_DIR}.openshift/config/*
+         do
+         target=$(basename $f)
+         # Remove any target that is being overwritten
+         if [ -e "${OPENSHIFT_KAFKA_DIR}/kafka/conf/$target" ]
+         then
+         echo "Removing existing $target"
+         rm -rf "${OPENSHIFT_ACTIVEMQ_DIR}/kafka/conf/$target"
+         cp ${OPENSHIFT_REPO_DIR}.openshift/config/$target ${OPENSHIFT_KAFKA_DIR}/kafka/conf
+         fi
+         done
+        else
+                cp ${OPENSHIFT_KAFKA_DIR}/versions/${version}/conf/* ${OPENSHIFT_KAFKA_DIR}/kafka/conf
+        fi
+}
+
+function replace_envs() {
+        for f in ${OPENSHIFT_KAFKA_DIR}/kafka/conf/*.xml
+        do
+                sed -i -e "s/\${env.OPENSHIFT_KAFKA_IP}/$OPENSHIFT_KAFKA_IP/g" \
+                        $f
+        done
+}
+
+function start() {
+  echo "Starting $cartridge_type cart"
+  
+  copy_conf
+  
+  replace_envs
+    
+  if marker_present "enable_jpda"
+  then
+export ENABLE_JPDA=1
+  fi
+
+  # Check for running app
+  if isrunning; then
+echo "Application is already running"
+  else
+pushd ${OPENSHIFT_KAFKA_DIR}/kafka
+    bin/kafka-server-start.sh > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
+    PROCESS_ID=$!
+    popd
+fi
+}
+
+
+function stop() {
+          echo "Stopping $cartridge_type cart"
+  
+        pushd ${OPENSHIFT_KAFKA_DIR}/kafka
+                bin/kafka-server-stop.sh > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
+        popd
+}
+
+function restart() {
+    echo "Restarting $cartridge_type cart"
+   
+          stop
+          
+          start
+}
+
+function status() {
+   if isrunning
+   then
+echo "Application is running"
+   else
+echo "Application is either stopped or inaccessible"
+   fi
+}
+
+function reload() {
+    echo "Reloading $cartridge_type cart"
+    restart
+}
+
+# Clean up any log files
+function tidy() {
+  client_message "Emptying log dir: $OPENSHIFT_KAFKA_LOG_DIR"
+  shopt -s dotglob
+  rm -rf $OPENSHIFT_KAFKA_LOG_DIR/*
+}
+
+function threaddump() {
+        echo "Thread dump for $cartridge_type cart"
+        
+    if ! isrunning; then
+echo "Application is stopped"
+        exit 1
+    elif [ -f "$KAFKA_PID_FILE" ]; then
+pid=$(cat $KAFKA_PID_FILE);
+        java_pid=$(ps h --ppid $pid -o '%p')
+        kill -3 $java_pid
+        client_result "Success"
+        client_result ""
+        client_result "The thread dump file will be available via: rhc tail $OPENSHIFT_APP_NAME -f */logs/server.log -o '-n 250'"
+    else
+echo "Failed to locate JBOSS PID File"
+    fi
+}
+
+case "$1" in
+  build)                build ;;
+  deploy)         deploy ;;
+  start)         start ;;
+  stop)         stop ;;
+  restart)         restart ;;
+  status)         status ;;
+  reload)         reload ;;
+  tidy)         tidy ;;
+  threaddump) threaddump ;;
+  *)         exit 0
+esac
