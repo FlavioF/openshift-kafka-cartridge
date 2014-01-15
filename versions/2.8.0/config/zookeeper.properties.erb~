@@ -15,7 +15,7 @@
 # the directory where the snapshot is stored.
 dataDir=/tmp/zookeeper
 # the port at which the clients will connect
-clientPort= '<%= ENV['OPENSHIFT_KAFKA_ZK_PORT'] %>'
+clientPort= '<%= ENV['OPENSHIFT_KAFKA_PORT'] %>'
 # disable the per-ip limit on the number of connections since this is a non-production config
 maxClientCnxns=0
 
