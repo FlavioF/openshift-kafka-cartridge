@@ -43,20 +43,20 @@ function copy_conf() {
          do
          target=$(basename $f)
          # Remove any target that is being overwritten
-         if [ -e "${OPENSHIFT_KAFKA_DIR}/kafka/config/$target" ]
+         if [ -e "${OPENSHIFT_KAFKA_DIR}/config/$target" ]
          then
          echo "Removing existing $target"
-         rm -rf "${OPENSHIFT_ACTIVEMQ_DIR}/kafka/config/$target"
-         cp ${OPENSHIFT_REPO_DIR}.openshift/config/$target ${OPENSHIFT_KAFKA_DIR}/kafka/config
+         rm -rf "${OPENSHIFT_ACTIVEMQ_DIR}/config/$target"
+         cp ${OPENSHIFT_REPO_DIR}.openshift/config/$target ${OPENSHIFT_KAFKA_DIR}/config
          fi
          done
         else
-                cp ${OPENSHIFT_KAFKA_DIR}/versions/${version}/config/* ${OPENSHIFT_KAFKA_DIR}/kafka/config
+                cp ${OPENSHIFT_KAFKA_DIR}/versions/${version}/config/* ${OPENSHIFT_KAFKA_DIR}/config
         fi
 }
 
 function replace_envs() {
-        for f in ${OPENSHIFT_KAFKA_DIR}/kafka/config/*.xml
+        for f in ${OPENSHIFT_KAFKA_DIR}/config/*.xml
         do
                 sed -i -e "s/\${env.OPENSHIFT_KAFKA_IP}/$OPENSHIFT_KAFKA_IP/g" \
                         $f
