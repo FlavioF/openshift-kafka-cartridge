@@ -20,13 +20,13 @@ Scaling:
   Min: 1
   Max: 1
 Endpoints:
-  - Private-IP-Name:   HOST
-    Private-Port-Name: PORT
-    Private-Port:      2181
-    Public-Port-Name:  PROXY_PORT
+  - Private-IP-Name:   IP
+    Private-Port-Name: ZK_PORT
+    Private-Port:      3128
+    Public-Port-Name:  PROXY_ZK_PORT
 
-  - Private-IP-Name:   P_HOST
-    Private-Port-Name: P_PORT
-    Private-Port:      9092
-    Public-Port-Name:  PROXY_P_PORT
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT
+    Private-Port:      9352
+    Public-Port-Name:  PROXY_PORT
 Install-Build-Required: false

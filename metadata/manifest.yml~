@@ -20,10 +20,11 @@ Scaling:
   Min: 1
   Max: 1
 Endpoints:
-  - Private-IP-Name:   HOST
+  - Private-IP-Name:   IP
     Private-Port-Name: PORT
     Private-Port:      2181
     Public-Port-Name:  PROXY_PORT
+
   - Private-IP-Name:   P_HOST
     Private-Port-Name: P_PORT
     Private-Port:      9092
