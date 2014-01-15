@@ -24,6 +24,12 @@ return 1
 # TODO: source user hooks?
 # Start and block until it comes up.
 function start {
+
+  if marker_present "enable_jpda"
+     then
+     export ENABLE_JPDA=1
+  fi
+
   if ! is_running; then
     pushd ${OPENSHIFT_KAFKA_DIR}/versions/${version}
     bin/kafka-server-start.sh config/server.properties -p $OPENSHIFT_CASSANDRA_DIR/kafka/pid/kafka.pid

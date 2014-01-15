@@ -7,7 +7,6 @@ Version: '2.8.0'
 Versions: [2.8.0]
 Cartridge-Version: 0.0.1
 Cartridge-Vendor: be
-License: GPL
 Vendor: kafka.apache.org
 Categories:
   - service
