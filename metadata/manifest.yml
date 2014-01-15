@@ -24,6 +24,7 @@ Endpoints:
     Private-Port-Name: PORT
     Private-Port:      2181
     Public-Port-Name:  PROXY_PORT
+
   - Private-IP-Name:   P_HOST
     Private-Port-Name: P_PORT
     Private-Port:      9092

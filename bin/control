@@ -32,6 +32,7 @@ function start {
 
   if ! is_running; then
     pushd ${OPENSHIFT_KAFKA_DIR}/versions/${version}
+    bin/zookeeper-server-start.sh config/zookeeper.properties
     #bin/kafka-server-start.sh config/server.properties -p $OPENSHIFT_CASSANDRA_DIR/kafka/pid/kafka.pid
   else
 echo "Kafka already running" 1>&2
