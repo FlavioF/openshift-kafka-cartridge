@@ -66,20 +66,20 @@ function replace_envs() {
 function start() {
   echo "Starting $cartridge_type cart"
   echo "Copy Conf"
-  copy_conf
+  #copy_conf
   echo "Replace Events"
-  replace_envs
+  #replace_envs
     
-  if marker_present "enable_jpda"
-  then
-export ENABLE_JPDA=1
-  fi
+  #if marker_present "enable_jpda"
+  #then
+#export ENABLE_JPDA=1
+  #fi
 
   # Check for running app
   if isrunning; then
 echo "Application is already running"
   else
-pushd ${OPENSHIFT_KAFKA_DIR}/kafka
+    pushd ${OPENSHIFT_KAFKA_DIR}/versions/${version}
     bin/kafka-server-start.sh > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
     PROCESS_ID=$!
     popd
