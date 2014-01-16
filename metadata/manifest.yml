@@ -2,7 +2,7 @@ Name: kafka
 Cartridge-Short-Name: KAFKA
 Architecture: noarch
 Display-Name: Kafka 2.8.0
-Description: "Kafka is a distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system, but with a unique design."
+Description: "Kafka is a distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system, but with a unique design"
 Version: '2.8.0'
 Versions: [2.8.0]
 Cartridge-Version: 0.0.1
