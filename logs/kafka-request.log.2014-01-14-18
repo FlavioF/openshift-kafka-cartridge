@@ -1,4 +1,0 @@
-[2014-01-14 18:30:33,576] DEBUG preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@5cad662c, name=log4j:logger=kafka.network.RequestChannel$ (kafka.network.RequestChannel$)
-[2014-01-14 18:30:33,578] DEBUG preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@5cad662c, name=log4j:logger=kafka.request.logger (kafka.request.logger)
-[2014-01-14 18:34:50,628] TRACE Processor 1 received request : Name: ProducerRequest; Version: 0; CorrelationId: 0; ClientId: ; RequiredAcks: 0; AckTimeoutMs: 0 ms; TopicAndPartition:  (kafka.network.RequestChannel$)
-[2014-01-14 18:35:26,582] TRACE Processor 1 received request : Name: ProducerRequest; Version: 0; CorrelationId: 0; ClientId: ; RequiredAcks: 0; AckTimeoutMs: 0 ms; TopicAndPartition:  (kafka.network.RequestChannel$)
