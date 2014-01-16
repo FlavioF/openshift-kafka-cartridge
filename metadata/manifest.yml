@@ -29,7 +29,7 @@ Endpoints:
 
   - Private-IP-Name:   IP
     Private-Port-Name: PORT
-    Private-Port:      9352
+    Private-Port:      8080
     Public-Port-Name:  PROXY_PORT
     Options:
        ssl_to_gear: true
