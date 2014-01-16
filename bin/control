@@ -7,7 +7,7 @@ version=2.8.0
 export STOPTIMEOUT=10
 
 function is_running {
-  pidfile=$OPENSHIFT_KAFKA_DIR/kafka/pid/kafka.pid
+  pidfile=$OPENSHIFT_KAFKA_DIR/pid/kafka.pid
 
   if [ -f $pidfile ]; then
 cass_pid=`cat $pidfile 2> /dev/null`
@@ -25,15 +25,15 @@ return 1
 # Start and block until it comes up.
 function start {
 
-  if marker_present "enable_jpda"
-     then
-     export ENABLE_JPDA=1
-  fi
+  #if marker_present "enable_jpda"
+  #   then
+  #   export ENABLE_JPDA=1
+  #fi
 
   if ! is_running; then
     pushd ${OPENSHIFT_KAFKA_DIR}/versions/${version}
-    #bin/zookeeper-server-start.sh config/zookeeper.properties
-    #bin/kafka-server-start.sh config/server.properties -p $OPENSHIFT_CASSANDRA_DIR/kafka/pid/kafka.pid
+    bin/zookeeper-server-start.sh config/zookeeper.properties &
+    bin/kafka-server-start.sh config/server.properties #-p $OPENSHIFT_KAFKA_DIR/pid/kafka.pid &
   else
 echo "Kafka already running" 1>&2
   fi
@@ -55,11 +55,13 @@ fi
 
 function stop {
   if is_running; then
-pidfile=$OPENSHIFT_KAFKA_DIR/kafka/pid/kafka.pid
+pidfile=$OPENSHIFT_KAFKA_DIR/pid/kafka.pid
 
     if [ -f $pidfile ]; then
 pid=$( /bin/cat $pidfile )
-      /bin/kill $pid
+      #/bin/kill $pid
+      pushd ${OPENSHIFT_KAFKA_DIR}/versions/${version}
+      bin/zookeeper-server-stop.sh &
       ret=$?
       if [ $ret -eq 0 ]; then
 TIMEOUT="$STOPTIMEOUT"
