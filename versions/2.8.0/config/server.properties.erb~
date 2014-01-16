@@ -22,12 +22,12 @@ broker.id=0
 ############################# Socket Server Settings #############################
 
 # The port the socket server listens on
-port=9092
+port=<%= ENV['OPENSHIFT_KAFKA_PORT'] %>
 
 # Hostname the broker will bind to and advertise to producers and consumers.
 # If not set, the server will bind to all interfaces and advertise the value returned from
 # from java.net.InetAddress.getCanonicalHostName().
-host.name='<%= ENV['OPENSHIFT_KAFKA_IP'] %>'
+host.name=<%= ENV['OPENSHIFT_KAFKA_IP'] %>
 
 # The number of threads handling network requests
 num.network.threads=2
@@ -82,7 +82,7 @@ log.flush.interval.ms=1000
 # from the end of the log.
 
 # The minimum age of a log file to be eligible for deletion
-log.retention.hours=168
+log.retention.hours=12
 
 # A size-based retention policy for logs. Segments are pruned from the log as long as the remaining
 # segments don't drop below log.retention.bytes.
@@ -102,7 +102,7 @@ log.cleanup.interval.mins=1
 # server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002".
 # You can also append an optional chroot string to the urls to specify the
 # root directory for all kafka znodes.
-zookeeper.connect=localhost:2181
+zookeeper.connect=<%= ENV['OPENSHIFT_KAFKA_ZOOKEEPER_IP'] %>:<%= ENV['OPENSHIFT_KAFKA_ZOOKEEPER_PORT'] %>
 
 # Timeout in ms for connecting to zookeeper
 zookeeper.connection.timeout.ms=1000000

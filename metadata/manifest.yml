@@ -21,12 +21,12 @@ Scaling:
   Max: 1
 Endpoints:
   - Private-IP-Name:   IP
-    Private-Port-Name: PORT
+    Private-Port-Name: ZOOKEEPER_PORT
     Private-Port:      2181
-    Public-Port-Name:  PROXY_PORT
+    Public-Port-Name:  PROXY_ZOOKEEPER_PORT
 
   - Private-IP-Name:   IP
-    Private-Port-Name: K_PORT
+    Private-Port-Name: PORT
     Private-Port:      9092
-    Public-Port-Name:  PROXY_K_PORT
+    Public-Port-Name:  PROXY_PORT
 Install-Build-Required: false

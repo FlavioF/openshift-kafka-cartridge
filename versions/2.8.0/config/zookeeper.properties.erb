@@ -13,10 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # the directory where the snapshot is stored.
-dataDir=/tmp/zookeeper
+dataDir=<%= ENV['OPENSHIFT_ZOOKEEPER_SNAPSHOT'] %>
 # the port at which the clients will connect
-clientPort=<%= ENV['OPENSHIFT_KAFKA_PORT'] %>
+clientPort=<%= ENV['OPENSHIFT_KAFKA_ZOOKEEPER_PORT'] %>
 # disable the per-ip limit on the number of connections since this is a non-production config
 maxClientCnxns=0
 
-clientPortAddress=<%= ENV['OPENSHIFT_KAFKA_IP'] %>
+clientPortAddress=<%= ENV['OPENSHIFT_KAFKA_ZOOKEEPER_IP'] %>
