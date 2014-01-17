@@ -51,12 +51,8 @@ Scaling:
   Min: 1
   Max: -1
 Endpoints:
-  
-
   - Private-IP-Name:   IP
     Private-Port-Name: PORT
     Private-Port:      9352
     Public-Port-Name:  PROXY_PORT
-    Options:
-       ssl_to_gear: true
 Install-Build-Required: false
