@@ -44,7 +44,7 @@ Provides:
   - kafka
 Publishes:
   publish-db-connection-info:
-    Type: ENV:NET_TCP:db:connection-info
+    Type: "ENV:NET_TCP:db:connection-info"
 publish-generic-java:
     Type: "ENV:NET_TCP:generic-java"
 Scaling:
