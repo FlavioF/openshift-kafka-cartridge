@@ -104,4 +104,32 @@ Endpoints:
   - Private-IP-Name:   IP
     Private-Port-Name: PORT15
     Private-Port:      3143
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT16
+    Private-Port:      3144
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT17
+    Private-Port:      3145
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT18
+    Private-Port:      3146
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT19
+    Private-Port:      3147
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT20
+    Private-Port:      3148
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT21
+    Private-Port:      3149
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT22
+    Private-Port:      3150
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT23
+    Private-Port:      3151
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT24
+    Private-Port:      3152
 Install-Build-Required: false
+
