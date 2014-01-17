@@ -59,4 +59,49 @@ Endpoints:
     Private-Port-Name: PORT
     Private-Port:      9352
     Public-Port-Name:  PROXY_PORT
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT1
+    Private-Port:      3129
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT2
+    Private-Port:      3130
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT3
+    Private-Port:      3131
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT4
+    Private-Port:      3132
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT5
+    Private-Port:      3133
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT6
+    Private-Port:      3134
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT7
+    Private-Port:      3135
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT8
+    Private-Port:      3136
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT9
+    Private-Port:      3137
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT10
+    Private-Port:      3138
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT11
+    Private-Port:      3139
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT12
+    Private-Port:      3140
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT13
+    Private-Port:      3141
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT14
+    Private-Port:      3142
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT15
+    Private-Port:      3143
 Install-Build-Required: false
