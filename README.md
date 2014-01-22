@@ -6,7 +6,7 @@ Cartridge Url: https://github.com/FlavioF/openshift-kafka-cartridge/blob/master/
 ## About Apache Kafka
 Apache Kafka is publish-subscribe messaging rethought as a distributed commit log. [Source](https://kafka.apache.org/)
 
-## Development..
+
 ### What is working
 - Kafka and Zookeeper runing in same gear. (DONE)
 - Kafka and Zookeeper running and communicating in different gears (in same Openshift Application).  (DONE)
